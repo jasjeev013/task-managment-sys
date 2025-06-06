@@ -26,7 +26,7 @@ exports.register = async (req, res, next) => {
 // @access  Public
 exports.login = async (req, res, next) => {
   const { email, password } = req.body;
-
+  console.log('Login attempt with email:', email); // Log the email being used for login
   // Validate email & password
   if (!email || !password) {
     return next(new ErrorResponse('Please provide an email and password', 400));
@@ -46,7 +46,8 @@ exports.login = async (req, res, next) => {
     if (!isMatch) {
       return next(new ErrorResponse('Invalid credentials', 401));
     }
-
+    console.log('Login successful:', user); // Log the user data
+    // Send token response
     sendTokenResponse(user, 200, res);
   } catch (err) {
     next(err);
@@ -90,6 +91,7 @@ const sendTokenResponse = (user, statusCode, res) => {
     .cookie('token', token, options)
     .json({
       success: true,
-      token
+      token,
+      user
     });
 };
