@@ -19,15 +19,8 @@ const TaskForm = ({
   const { isError, isSuccess, message } = useSelector((state) => state.tasks);
   const [files, setFiles] = useState([]);
 
-  useEffect(() => {
-    dispatch(getUsers());
-  }, [dispatch]);
+ 
 
-  useEffect(() => {
-    if (isSuccess) {
-      navigate('/tasks');
-    }
-  }, [isSuccess, navigate]);
 
   const validationSchema = Yup.object({
     title: Yup.string()

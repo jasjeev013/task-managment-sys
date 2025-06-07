@@ -1,6 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Alert from '../common/Alert';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -15,10 +15,10 @@ const UserForm = ({
   const { isError, isSuccess, message } = useSelector((state) => state.users);
 
   useEffect(() => {
-    if (isSuccess) {
-      navigate('/users');
-    }
-  }, [isSuccess, navigate]);
+    // if (isSuccess) {
+    //   navigate('/users');
+    // }
+  }, [isSuccess]);
 
   const validationSchema = Yup.object({
     email: Yup.string()
@@ -26,7 +26,12 @@ const UserForm = ({
       .required('Required'),
     role: Yup.string()
       .oneOf(['user', 'admin'], 'Invalid role')
-      .required('Required')
+      .required('Required'),
+    password: isEdit
+      ? Yup.string() // When editing, password can be optional or not changed
+      : Yup.string()
+          .min(6, 'Password must be at least 6 characters')
+          .required('Required'),
   });
 
   return (
@@ -61,6 +66,27 @@ const UserForm = ({
                 className="text-red-500 text-sm mt-1"
               />
             </div>
+
+            <div className="mb-4">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Password
+              </label>
+              <Field
+                type="password"
+                name="password"
+                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                placeholder={isEdit ? "Leave blank to keep current password" : ""}
+              />
+              <ErrorMessage
+                name="password"
+                component="div"
+                className="text-red-500 text-sm mt-1"
+              />
+            </div>
+
             <div className="mb-6">
               <label
                 htmlFor="role"

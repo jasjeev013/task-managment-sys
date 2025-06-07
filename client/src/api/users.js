@@ -32,6 +32,7 @@ const createUser = async (userData, token) => {
       Authorization: `Bearer ${token}`
     }
   };
+  console.log('Creating user with data:', userData); // Log user data for debugging
   const response = await axios.post(API_URL, userData, config);
   return response.data; // Return created user directly
 };

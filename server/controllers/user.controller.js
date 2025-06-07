@@ -45,6 +45,8 @@ exports.getUser = async (req, res, next) => {
 // @access  Private/Admin
 exports.createUser = async (req, res, next) => {
   try {
+
+    console.log('Creating user with data:', req.body);
     const user = await User.create(req.body);
 
     res.status(201).json({

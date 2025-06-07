@@ -19,28 +19,28 @@ function App() {
     <Router>
       <Routes>
         {/* Public routes */}
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
+        <Route exact path="/login" element={<LoginPage />} />
+        <Route exact path="/register" element={<RegisterPage />} />
 
         {/* Protected routes under /dashboard */}
-        <Route path="/" element={<PrivateRoute />}>
-          <Route element={<DashboardPage />}>
+        <Route exact path="/" element={<PrivateRoute />}>
+          <Route exact element={<DashboardPage />}>
             {/* Dashboard home */}
-            <Route index element={<HomePage />} />
+            <Route exact index element={<HomePage />} />
             
             {/* Task routes */}
-            <Route path="tasks">
-              <Route index element={<TasksPage />} />
-              <Route path="create" element={<CreateTaskPage />} />
-              <Route path=":id" element={<TaskDetailsPage />} />
-              <Route path=":id/edit" element={<EditTaskPage />} />
+            <Route exact path="tasks">
+              <Route exact index element={<TasksPage />} />
+              <Route exact path="create" element={<CreateTaskPage />} />
+              <Route exact path=":id" element={<TaskDetailsPage />} />
+              <Route exact path=":id/edit" element={<EditTaskPage />} />
             </Route>
 
             {/* Admin-only routes */}
-            <Route path="users" element={<AdminRoute />}>
-              <Route index element={<UsersPage />} />
-              <Route path="create" element={<CreateUserPage />} />
-              <Route path=":id/edit" element={<EditUserPage />} />
+            <Route exact path="users" element={<AdminRoute />}>
+              <Route exact index element={<UsersPage />} />
+              <Route exact path="create" element={<CreateUserPage />} />
+              <Route exact path=":id/edit" element={<EditUserPage />} />
             </Route>
           </Route>
         </Route>
