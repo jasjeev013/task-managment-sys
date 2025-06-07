@@ -10,7 +10,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'https://task-managment-sys-backend.vercel.app',
+  origin: 'https://task-managment-sys.vercel.app',
   credentials: true // Optional: include this if you're using cookies or HTTP auth
 }));
 app.use(helmet());
