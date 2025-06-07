@@ -5,7 +5,8 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const errorHandler = require('./middleware/error');
 require('dotenv').config();
-
+const {connectDB} = require('./config/db');
+const PORT = process.env.PORT || 5000;
 const app = express();
 
 // Middleware
@@ -45,5 +46,11 @@ app.use('/api/v1/tasks', tasks);
 
 // Error handling middleware
 app.use(errorHandler);
+
+connectDB();
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 module.exports = app;

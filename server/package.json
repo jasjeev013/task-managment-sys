@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node api/index.js",
-    "dev": "nodemon server.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "cross-env NODE_ENV=test mocha --timeout 10000"
   },
   "keywords": [],
