@@ -9,7 +9,10 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'https://task-managment-sys-backend.vercel.app',
+  credentials: true // Optional: include this if you're using cookies or HTTP auth
+}));
 app.use(helmet());
 app.use(morgan('dev'));
 app.use(express.json());
