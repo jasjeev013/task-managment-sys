@@ -59,7 +59,7 @@ const RegisterForm = () => {
               <Field
                 type="email"
                 name="email"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               />
               <ErrorMessage
                 name="email"
@@ -77,7 +77,7 @@ const RegisterForm = () => {
               <Field
                 type="password"
                 name="password"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               />
               <ErrorMessage
                 name="password"
@@ -95,7 +95,7 @@ const RegisterForm = () => {
               <Field
                 as="select"
                 name="role"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               >
                 <option value="user">User</option>
                 <option value="admin">Admin</option>

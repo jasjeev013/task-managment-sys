@@ -15,6 +15,9 @@ A full-stack task management application with user authentication, task CRUD ope
 - **Real-time Updates**: WebSocket integration
 - **Docker Support**: Easy containerized deployment
 
+
+
+---
 ## Tech Stack 💻
 
 ### Frontend
@@ -31,6 +34,32 @@ A full-stack task management application with user authentication, task CRUD ope
 ### DevOps
 ![Docker](https://img.shields.io/badge/Docker-24-blue)
 ![Mocha](https://img.shields.io/badge/Mocha-11.5-brown)
+### 🔐 Test Login Credentials
+
+For testing purposes, you can use the following credentials to log in as an **admin** or a **regular user**:
+
+#### Admin Account
+
+```json
+{
+  "email": "admin@example.com",
+  "password": "AdminPass123!",
+  "role": "admin"
+}
+```
+
+#### User Account
+
+```json
+{
+  "email": "user@example.com",
+  "password": "UserPass456!",
+  "role": "user"
+}
+```
+
+> These accounts are intended for development/testing only. Make sure to remove or secure them before deploying to production.
+
 
 ## Screenshots 📸
 

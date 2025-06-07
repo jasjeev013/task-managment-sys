@@ -37,12 +37,6 @@ const Sidebar = () => {
       path: '/users',
       icon: FiUsers,
       allowed: isAdmin
-    },
-    {
-      name: 'Settings',
-      path: '/settings',
-      icon: FiSettings,
-      allowed: true
     }
   ];
 

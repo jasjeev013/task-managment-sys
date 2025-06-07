@@ -80,7 +80,7 @@ const TaskForm = ({
                 <Field
                   type="text"
                   name="title"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                 />
                 <ErrorMessage
                   name="title"
@@ -98,7 +98,7 @@ const TaskForm = ({
                 <Field
                   as="select"
                   name="assignedTo"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option value="">Select User</option>
                   {users!=null && users.map((user) => (
@@ -123,7 +123,7 @@ const TaskForm = ({
                 <Field
                   as="select"
                   name="status"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option value="pending">Pending</option>
                   <option value="in-progress">In Progress</option>
@@ -145,7 +145,7 @@ const TaskForm = ({
                 <Field
                   as="select"
                   name="priority"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                 >
                   <option value="low">Low</option>
                   <option value="medium">Medium</option>
@@ -167,7 +167,7 @@ const TaskForm = ({
                 <Field
                   type="date"
                   name="dueDate"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                 />
                 <ErrorMessage
                   name="dueDate"
@@ -187,7 +187,7 @@ const TaskForm = ({
                 as="textarea"
                 name="description"
                 rows="4"
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               />
               <ErrorMessage
                 name="description"
@@ -204,7 +204,7 @@ const TaskForm = ({
                 onChange={(e) => handleFileChange(e, setFieldValue)}
                 accept=".pdf"
                 multiple
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full text-black px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
               />
               {files.length > 0 && (
                 <div className="mt-2">
