@@ -26,52 +26,50 @@ const getTask = async (taskId, token) => {
   return response.data;
 };
 
-// Create task with file upload support
-const createTask = async (taskData, token) => {
-  // Create FormData object for file uploads
-  const formData = new FormData();
-  
-  // Append all task data fields to formData
-  Object.keys(taskData).forEach(key => {
-    if (key === 'documents' && taskData[key]) {
-      // Handle multiple file uploads
-      Array.from(taskData[key]).forEach(file => {
-        formData.append('documents', file);
-      });
-    } else if (taskData[key] !== undefined && taskData[key] !== null) {
-      formData.append(key, taskData[key]);
-    }
-  });
 
+// Create task
+const createTask = async (taskData, token) => {
+  console.log('Creating task with data:', taskData);  
+ 
+//   // Convert files to Base64
+//   const documents = await Promise.all(
+//     taskData.documents?.map(file => toBase64(file)) || []
+//   );
+// console.log('Converted documents to Base64:', documents);
+//   const payload = {
+//     ...taskData,
+//     documents, // Now an array of Base64 strings
+//   };
+
+// console.log('Payload for task creation:', payload);
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
-      'Content-Type': 'multipart/form-data'
-    }
+      'Content-Type': 'application/json',
+    },
   };
 
   try {
-    const response = await axios.post(API_URL, formData, config);
-    return {
-      success: true,
-      data: response.data.data  // Matching backend response structure
-    };
+    console.log('Sending request to create task...');
+    const response = await axios.post(API_URL, taskData, config);
+    console.log('Task created successfully:', response);
+    return { success: true, data: response.data };
   } catch (error) {
-    // Handle error response matching backend structure
-    if (error.response) {
-      throw {
-        success: false,
-        error: error.response.data.error || 'Failed to create task',
-        status: error.response.status
-      };
-    } else {
-      throw {
-        success: false,
-        error: error.message || 'Failed to create task'
-      };
-    }
+    throw {
+      success: false,
+      error: error.response?.data?.error || 'Failed to create task',
+      status: error.response?.status,
+    };
   }
 };
+
+// Helper: Convert File to Base64
+const toBase64 = (file) => new Promise((resolve, reject) => {
+  const reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onload = () => resolve(reader.result.split(',')[1]); // Remove data: prefix
+  reader.onerror = (error) => reject(error);
+});
 
 // Update task
 const updateTask = async (taskId, taskData, token) => {

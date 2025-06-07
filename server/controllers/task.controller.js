@@ -123,6 +123,8 @@ exports.getTask = async (req, res, next) => {
 // @access  Private
 exports.createTask = async (req, res, next) => {
   try {
+
+    console.log('Creating task with data:', req.body);
     // Add user to req.body
     req.body.createdBy = req.user.id;
 

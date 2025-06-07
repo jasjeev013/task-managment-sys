@@ -40,8 +40,8 @@ const LoginForm = () => {
         })}
         onSubmit=  { (values, { setSubmitting }) => {
            dispatch(login(values));
-           
           setSubmitting(false);
+          navigate('/');
         }}
       >
         {({ isSubmitting }) => (

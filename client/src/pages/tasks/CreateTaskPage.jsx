@@ -15,22 +15,27 @@ const CreateTaskPage = () => {
     assignedTo: ''
   };
 
-  const onSubmit = (values) => {
-    const formData = new FormData();
-    formData.append('title', values.title);
-    formData.append('description', values.description);
-    formData.append('status', values.status);
-    formData.append('priority', values.priority);
-    formData.append('dueDate', values.dueDate);
-    formData.append('assignedTo', values.assignedTo);
-    if (values.documents) {
-      values.documents.forEach((file) => {
-        formData.append('documents', file);
-      });
-    }
-    dispatch(createTask(formData));
+const onSubmit = (values) => {
+  // Create a plain JavaScript object
+  const taskData = {
+    title: values.title,
+    description: values.description,
+    status: values.status,
+    priority: values.priority,
+    dueDate: values.dueDate,
+    assignedTo: values.assignedTo,
+    // If you're handling files separately (recommended)
+    documents: values.documents ? values.documents.map(file => ({
+      name: file.name,
+      size: file.size,
+      type: file.type,
+      // If you need to send Base64 encoded content:
+      // content: await convertToBase64(file) 
+    })) : []
   };
 
+  dispatch(createTask(taskData));
+};
   return (
     <div>
       <h1 className="text-2xl font-bold text-gray-900 mb-6">Create Task</h1>

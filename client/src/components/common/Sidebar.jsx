@@ -30,7 +30,7 @@ const Sidebar = () => {
       name: 'Create Task',
       path: '/tasks/create',
       icon: FiPlusCircle,
-      allowed: true
+      allowed: isAdmin
     },
     {
       name: 'Users',

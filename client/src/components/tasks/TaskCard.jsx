@@ -52,7 +52,7 @@ const TaskCard = ({ task, isAdmin }) => {
           {task.priority}
         </span>
         <span className="px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-          Due: {format(new Date(task.dueDate), 'MMM dd, yyyy')}
+          Due: {task.dueDate}
         </span>
         {task.documents && task.documents.length > 0 && (
           <span className="px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">

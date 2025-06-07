@@ -98,8 +98,8 @@ const TaskList = () => {
       </div>
       <div>
         {tasks && tasks.length > 0 ? (
-          tasks.map((task) => (
-            <TaskCard key={task._id} task={task} isAdmin={isAdmin} />
+          tasks.map((task,index) => (
+            <TaskCard key={index} task={task} isAdmin={isAdmin} />
           ))
         ) : (
           <div className="text-center py-12">

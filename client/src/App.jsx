@@ -22,22 +22,25 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
 
-        {/* Protected routes */}
-        <Route element={<PrivateRoute />}>
+        {/* Protected routes under /dashboard */}
+        <Route path="/" element={<PrivateRoute />}>
           <Route element={<DashboardPage />}>
+            {/* Dashboard home */}
             <Route index element={<HomePage />} />
             
-            {/* Regular user routes */}
-            <Route path="tasks" element={<TasksPage />} />
-            <Route path="tasks/create" element={<CreateTaskPage />} />
-            <Route path="tasks/:id" element={<TaskDetailsPage />} />
-            <Route path="tasks/:id/edit" element={<EditTaskPage />} />
+            {/* Task routes */}
+            <Route path="tasks">
+              <Route index element={<TasksPage />} />
+              <Route path="create" element={<CreateTaskPage />} />
+              <Route path=":id" element={<TaskDetailsPage />} />
+              <Route path=":id/edit" element={<EditTaskPage />} />
+            </Route>
 
             {/* Admin-only routes */}
-            <Route element={<AdminRoute />}>
-              <Route path="users" element={<UsersPage />} />
-              <Route path="users/create" element={<CreateUserPage />} />
-              <Route path="users/:id/edit" element={<EditUserPage />} />
+            <Route path="users" element={<AdminRoute />}>
+              <Route index element={<UsersPage />} />
+              <Route path="create" element={<CreateUserPage />} />
+              <Route path=":id/edit" element={<EditUserPage />} />
             </Route>
           </Route>
         </Route>
