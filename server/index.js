@@ -24,6 +24,7 @@ app.get('/', (req, res) => {
   res.send('Backend is running!');
 });
 
+
 // Rate limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
