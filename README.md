@@ -1,9 +1,7 @@
-Here's a professional, well-structured `README.md` for your Task Management System with placeholders for screenshots:
-
 
 # Task Management System 🚀
 
-![Task Management System Screenshot](screenshots/dashboard.png) <!-- Add your screenshot here -->
+![Task Management System Screenshot](screenshots/home.png) 
 
 A full-stack task management application with user authentication, task CRUD operations, file attachments, and role-based access control.
 
@@ -40,14 +38,37 @@ A full-stack task management application with user authentication, task CRUD ope
 |------------|-----------|-----------|
 | ![Login](screenshots/login.png) | ![Dashboard](screenshots/dashboard.png) | ![Task](screenshots/task.png) |
 
+| Frontend | Backend | Database |
+|------------|-----------|-----------|
+| ![Login](screenshots/frontend.png) | ![Dashboard](screenshots/backend.png) | ![Task](screenshots/database.png) |
+
+### Backend Tests Data
+![Test](screenshots/test.png)
+
 ## Directory Structure 📂
 
-
+```bash
 TASK-MANAGEMENT-SYS/
-├── client/            # React frontend
-├── server/            # Node.js backend
-└── docker-compose.yml # Docker configuration
+├── client/              # React frontend (Vite + TailwindCSS)
+│   ├── src/             # Frontend source code
+│   │   ├── api/         # API service modules
+│   │   ├── components/  # Reusable UI components
+│   │   ├── features/    # Redux state slices
+│   │   ├── pages/       # Route-based components
+│   │   └── ...          # Other frontend assets
+│   └── vite.config.js   # Vite configuration
+│
+├── server/              # Node.js backend (Express + MongoDB)
+│   ├── config/          # Database and JWT config
+│   ├── controllers/     # Route controllers
+│   ├── middleware/      # Auth and error handlers
+│   ├── models/          # MongoDB schemas
+│   ├── routes/          # API endpoints
+│   ├── uploads/         # File storage directory
+│   ├── server.js        # Backend entry point
+│   └── docker-compose.yml   # Docker container orchestration
 
+```
 
 ## Installation 🛠️
 
@@ -134,6 +155,7 @@ Alternative deployment options:
 - Heroku
 - AWS EC2
 - DigitalOcean
+- Vercel
 
 ## Contributing 🤝
 
@@ -145,7 +167,7 @@ Alternative deployment options:
 
 ## License 📄
 
-MIT © [Your Name](https://github.com/yourusername)
+MIT © [Jasjeev Singh Kohli](https://github.com/jasjeev013)
 
 ---
 
