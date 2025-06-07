@@ -5,13 +5,19 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 const errorHandler = require('./middleware/error');
 require('dotenv').config();
-const {connectDB} = require('./config/db');
+const { connectDB } = require('./config/db');
 const PORT = process.env.PORT || 5000;
 const app = express();
 
 // Middleware
 app.use(cors({
-  origin: ["https://task-managment-sys.vercel.app","http://localhost:5173"],
+  origin: ["https://task-managment-sys.vercel.app", "http://localhost:5173"],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+app.options('*', cors({
+  origin: ["https://task-managment-sys.vercel.app", "http://localhost:5173"],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
