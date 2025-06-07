@@ -28,7 +28,7 @@ describe('Task Management API', () => {
         .send({
           email: 'test@example.com',
           password: '123456',
-          role: 'user'
+          role: 'admin'
         });
 
       expect(res.statusCode).to.equal(200);
