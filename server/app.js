@@ -11,7 +11,9 @@ const app = express();
 // Middleware
 app.use(cors({
   origin: 'https://task-managment-sys.vercel.app',
-  credentials: true // Optional: include this if you're using cookies or HTTP auth
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
 app.use(helmet());
 app.use(morgan('dev'));
