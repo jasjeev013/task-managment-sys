@@ -8,6 +8,15 @@ const LoginPage = () => {
           Task Manager
         </h1>
       </div>
+      For registration, please visit the{' '}
+      <div className="text-center mt-2">
+        <a
+          href="/register"
+          className="text-blue-600 hover:text-blue-800 font-medium"
+        >
+          Registration Page
+        </a>
+      </div>
       <LoginForm />
       <div className="mt-6 sm:mx-auto sm:w-full sm:max-w-md text-sm text-gray-600 bg-white p-4 rounded shadow">
         <p className="mb-2 font-medium">For testing purposes, you can use the following logins:</p>
